@@ -6,7 +6,11 @@
 
 A typical way to run this image would be to pass an environment file and publish the needed port:
 
-`docker run --env-file /my/firehose.env -p 7474:7474/tcp --name fh1 -h fh1 andyshinn/firehose-docker`
+`docker run --env-file $(pwd)/firehose.env -p 7474 --name firehose -d firehose/server`
+
+Then lookup the NAT port using:
+
+`docker port firehose 7474`
 
 ## Environment
 
