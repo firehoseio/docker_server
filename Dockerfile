@@ -8,9 +8,10 @@ RUN apt-get install -y -q git ruby ruby-dev ruby-bundler \
  libxslt1-dev libxml2-dev make g++
 
 ADD . /firehose
+ADD ./start_firehose /usr/local/bin/start_firehose
 
 RUN bundle install --without development test --gemfile /firehose/Gemfile
 
 EXPOSE 7474
 
-CMD firehose server -p $PORT
+CMD start_firehose
