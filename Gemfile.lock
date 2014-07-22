@@ -3,8 +3,9 @@ GEM
   specs:
     addressable (2.3.6)
     cookiejar (0.3.2)
-    em-hiredis (0.2.1)
-      hiredis (~> 0.4.0)
+    em-hiredis (0.3.0)
+      eventmachine (~> 1.0)
+      hiredis (~> 0.5.0)
     em-http-request (1.1.2)
       addressable (>= 2.3.4)
       cookiejar
@@ -16,10 +17,10 @@ GEM
     eventmachine (1.0.3)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
-    faye-websocket (0.7.3)
+    faye-websocket (0.7.4)
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.3.1)
-    firehose (1.2.12)
+    firehose (1.2.13)
       em-hiredis (>= 0.2.0)
       em-http-request (>= 1.0.0)
       eventmachine (>= 1.0.0)
@@ -29,7 +30,7 @@ GEM
       rack
       thor
     hike (1.2.3)
-    hiredis (0.4.5)
+    hiredis (0.5.2)
     http_parser.rb (0.6.0)
     json (1.8.1)
     kgio (2.9.2)
@@ -52,7 +53,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    websocket-driver (0.3.3)
+    websocket-driver (0.3.4)
 
 PLATFORMS
   ruby
