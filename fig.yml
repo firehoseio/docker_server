@@ -1,0 +1,41 @@
+etcd:
+  image: polleverywhere/etcd
+  net: host
+  environment:
+    ETCD_NAME: etcd
+    ETCD_ADDR: 172.17.42.1:4001
+    ETCD_PEER_ADDR: 172.17.42.1:7001
+    ETCDCTL_PEERS: 172.17.42.1:4001
+    ETCD_CLUSTER_ACTIVE_SIZE: 1
+
+redis:
+  image: redis
+
+firehose:
+  build: .
+  environment:
+    REDIS_URL: redis://redis:6379/1
+    LOG_LEVEL: debug
+    HOST: 0.0.0.0
+    SERVER: rainbows
+    PORT: 7474
+    RACK_ENV: production
+    WORKER_PROCESSES: 4
+    SERVICE_NAME: upstream
+  ports:
+    - 7474
+  links:
+    - redis
+
+haproxy:
+  image: firehoseio/haproxy
+  ports:
+    - 5000:80
+    - 1080:8080
+
+registrator:
+  image: progrium/registrator
+  command: etcd://172.17.42.1:4001/firehose
+  net: host
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock
