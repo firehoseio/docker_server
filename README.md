@@ -1,6 +1,6 @@
 # firehose-docker
 
-[Firehose][firehose] as a [Docker][docker] container. Configuration is passed using environment variables with `--env` or `--env-file` when running with `docker run`. Learn more about [Firehose][firehose] configuration at https://github.com/polleverywhere/firehose.
+[Firehose][firehose] as a [Docker][docker] container. Configuration is passed using environment variables with `--env` or `--env-file` when running with `docker run`. Learn more about [Firehose][firehose] configuration at https://github.com/firehoseio/firehose.
 
 ## Usage
 
